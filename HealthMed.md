@@ -5,7 +5,7 @@
 ## Как запустить проект
 1. Установить на компьютер [docker](https://docker.com)
 2. Распаковать архив `HealthMedProject.rar`
-3. Открыть терминал в корневой папке проекта и написать в консоле  `docker compose up`
+3. Открыть терминал в корневой папке проекта и написать в консоле docker `docker compose build`, а затем `docker compose up`
 4. Запуститься 3 контейнера: nginx, postgresql и python с кодом самого сайта
 
 ---
