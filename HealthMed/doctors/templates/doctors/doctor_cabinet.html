@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+    {% include 'imports.html' %}
+    <link rel="stylesheet" href="{% static 'main_pages/styles/index.css' %}">
+    <script>const userType = "{{ user_type }}"</script>
+    <script>const DOCTOR_ID = "{{ doctor_id }}"</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/locales/bootstrap-datepicker.nl.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js" integrity="sha512-tlmsbYa/wD9/w++n4nY5im2NEhotYXO3k7WP9/ds91gJk3IqkIXy9S0rdMTsU4n7BvxCR3G4LW2fQYdZedudmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.css" integrity="sha512-E4kKreeYBpruCG4YNe4A/jIj3ZoPdpWhWgj9qwrr19ui84pU5gvNafQZKyghqpFIHHE4ELK7L9bqAv7wfIXULQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="{% static 'users/styles/personal_cabinet.css' %}">
+    <link rel="stylesheet" href="{% static 'doctors/styles/doctor_cabinet.css' %}">
+</head>
+<body class="page-index">
+
+    {% with authorized=authorized_status %}
+        {% include 'header.html' %}
+    {% endwith %}
+
+
+    <div class="page-content personal-cabinet">
+        <div class="container">
+
+            <div class="page-block">
+                <div class="user-block">
+
+                    <div class="user-info disabled">
+                        
+                        <h1>Профиль Врача</h1>
+
+                        <div class="fio">
+                            <p>{{ user.lastname }}</p>
+                            <p>{{ user.firstname }}</p>
+                            {% if user.surname %} <p>{{ user.surname }}</p> {% endif %}
+                        </div>
+                        <label class="user-field">Email <input id="user-email" type="email" value="{{ user.email }}"></label>
+                        <label class="user-field">Специализация <input id="user-special" value="{{ user.specialization.name }}"></label>
+                    </div>
+
+                </div>
+
+                <div class="workspace">
+                    
+                    <div class="workspace-container">
+    
+                        <div class="nav-menu">
+                            <button name="doctor-appointments" id="doctor-appointments">Записи к вам</button>
+                            <button name="doctor-schedule" id="doctor-schedule">Ваше расписание</button>
+                            <button name="doctor-consultation" id="doctor-consultation">Заявки на консультацию</button>
+                            <button name="doctor-article" id="doctor-article">Опубликовать статью</button>
+                            <!-- <button name="history" id="history">История</button> -->
+                        </div>
+
+                        <div class="workspace-content" id="workspace-viewer">
+
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="{% static 'main_pages/js/handlers.js' %}"></script>
+    <script src="{% static 'doctors/js/doctor-profile.js' %}"></script>
+    
+</body>
+</html>

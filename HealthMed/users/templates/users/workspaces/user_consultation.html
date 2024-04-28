@@ -1,0 +1,29 @@
+<script src="/static/users/js/patient-consultations.js"></script>
+<div class="consultation-specs">
+    <p class="specs-title">Выберите специализацию</p>
+
+    <div class="items-list">
+
+        {% for spec in specializations %}
+            <button class="spec-item" id="spec-{{ spec.id }}">{{ spec.name }}</button>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<div class="consultation-form">
+    <div class="doctors">
+        {% for doctor in doctors %}
+
+            <div class="doctor-data" id="doctor-{{ doctor.doctor_id }}">
+                <div class="doctor-info">
+                    <p class="doctor-name">{{ doctor.lastname }} {{ doctor.firstname }} {{ doctor.surname }}</p>
+                    <label class="consult-date">Выберите дату<input id="consult-date-{{ doctor.doctor_id }}" type="date"></label>
+                    <button class="consult-submit-btn" onclick="makeConsultationRequest(this);" id="consult-doctor-{{ doctor.doctor_id }}">Записаться</button>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+</div>

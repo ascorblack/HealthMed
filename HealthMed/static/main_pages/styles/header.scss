@@ -1,0 +1,149 @@
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 800;
+  user-select: none;
+
+  .header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+    max-width: 1300px;
+    margin: 0 auto;
+
+    .logo a {
+      color: #333;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .menu {
+      display: flex;
+      flex: 1;
+
+      nav {
+        margin-left: 2rem;
+      }
+    }
+
+    .menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+
+      li {
+        margin-left: 20px;
+      }
+
+      a {
+        color: #333;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+      }
+    }
+
+    .login .header-button {
+      background-color: #b524d9;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 0.6rem;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .login .header-button:hover {
+      background-color: #b15cff;
+    }
+
+    #logout-button {
+      background-color: transparent;
+      color: #b524d9;
+
+      &:hover {
+        background-color: #e33cb3;
+        color: white;
+      }
+    }
+  }
+
+  .menu a:hover {
+    color: #b15cff;
+  }
+
+  .logo a:hover {
+    text-decoration: none;
+  }
+
+  @media (max-width: 1000px) {
+    .menu {
+      // display: none !important;
+      width: 100%;
+      justify-content: center;
+      margin: 1rem 0 0 0;
+
+      nav, li {
+        margin: unset !important;
+        padding: unset !important;
+      }
+    }
+  }
+
+  @media (max-width: 1299px) {
+    .container {
+      height: unset;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .logo {
+      padding: 1rem 2rem 0;
+
+      a {
+        font-size: 2rem !important;
+      }
+    }
+
+    .menu {
+      display: none;
+      width: 100%;
+    }
+
+    .menu.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .menu li {
+      margin: 0 0 10px;
+    }
+
+    .menu a {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+    }
+
+    .menu a:hover {
+      color: #b15cff;
+    }
+
+    .login {
+      margin: 1rem 0 1.4rem;
+      padding: 1rem 2rem;
+    }
+  }
+}

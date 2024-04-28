@@ -1,0 +1,495 @@
+html {
+    height: 100vh;
+}
+
+.page-index {
+    margin-top: unset;
+
+    .personal-cabinet {
+        margin-top: 5rem;
+        height: 100%;
+
+        .container {
+            align-items: unset;
+            justify-content: unset;
+            // height: 100%;
+            flex: 1;
+
+            .page-block {
+                max-width: unset;
+                width: 100%;
+                align-items: unset;
+                padding: unset;
+
+
+                .user-block {
+                    display: flex;
+                    justify-content: flex-start;
+                    flex-direction: column;
+                    flex: 1;
+
+                    .disabled {
+                        input {
+                            pointer-events: none;
+                            user-select: unset;
+                        }
+                    }
+
+                    #edit-info-btn {
+                        font-weight: bold;
+                        font-size: 1.2rem;
+                        padding: 1rem;
+                        border-radius: .6rem;
+                        border: 1px solid rgba(137, 0, 179, 0.89);
+                        background-color: rgba(255, 255, 255, 0.897);
+                        margin: 1rem;
+                        color: rgba(137, 0, 179, 0.89);
+
+                        &:hover {
+                            cursor: pointer;
+                            background-color: rgba(223, 223, 223, 0.74);
+                            color: rgba(167, 0, 218, 0.89);
+                        }
+                    }
+
+                    .in-edit {
+                        color: #22cc22 !important;
+                        border: 1px solid #22cc22 !important;
+                    }
+
+                    .user-info {
+                        padding: 1rem;
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+
+                        input {
+                            padding: 0.4rem;
+                            margin: 0.4rem 0 0 0.2rem;
+                            font-size: 1rem;
+                        }
+
+                        h1 {
+                            margin: 0.2rem auto 1rem auto;
+                            font-size: 2rem;
+                        }
+    
+                        p {
+                            font-size: 1.2rem;
+                            margin-top: .8rem;
+                        }
+
+                        .user-field {
+                            display: flex;
+                            flex-direction: column;
+                            margin: 0.2rem;
+                            font-size: 1.2rem;
+                            font-weight: 500;
+                        }
+
+                        .fio {
+                            display: flex;
+                            justify-content: center;
+                            flex-direction: column;
+                            text-align: center;
+                            padding: 1rem;
+                            border: 1px #4b4b4b solid;
+                            border-radius: 0.6rem;
+                            
+                            p {
+                                font-size: 1.6rem;
+                                margin: 0.2rem;
+                            }
+                        }
+                    }
+                }
+
+
+                .workspace {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    flex: 5;
+                    background-color: rgba(93, 37, 174, 0.47);
+
+                    .workspace-container {
+                        display: flex;
+                        justify-content: flex-start;
+                        flex-direction: column;
+                        margin: 2rem;
+                        background-color: white;
+                        height: 100%;
+                        border-radius: 1rem;
+
+                        .nav-menu {
+                            display: flex;
+                            justify-content: flex-start;
+                            flex-direction: row;                        
+
+                            button {
+                                font-size: 1rem;
+                                margin-top: 1rem;
+                                background-color: #1abc9c;
+                                color: white;
+                                text-align: center;
+                                border: 0px solid #1abc9c;
+                                border-radius: unset;
+                                padding: .8rem;
+                                font-weight: bold;
+                                transition: 200ms;
+    
+                                &:hover {
+                                    background-color: #16a085;
+                                    cursor: pointer;
+                                }
+
+                                &:first-of-type {
+                                    margin-left: 1rem;
+                                }
+
+                                &:first-child {
+                                    border-top-left-radius: .4rem;
+                                    border-bottom-left-radius: .4rem;
+                                }
+                                &:last-child {
+                                    border-top-right-radius: .4rem;
+                                    border-bottom-right-radius: .4rem;
+                                }
+                            }
+
+                            .active {
+                                background-color: #16a085;
+                                box-shadow: 1px 1px 1px #1a661a;
+                            }
+                        }
+
+                        .workspace-content {
+                            display: flex;
+                            justify-content: flex-start;
+                            flex-direction: row;
+                            padding: 1rem;
+                            height: 100%;
+
+                            .appointments-specs, .consultation-specs {
+                                display: flex;
+                                justify-content: flex-start;
+                                flex: 2;
+                                flex-direction: column;
+
+                                .specs-title {
+                                    font-size: 1.2rem;
+                                    font-weight: normal;
+                                    margin: 1rem;
+                                }
+
+                                .items-list {
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    flex-direction: column;
+                                    background-color: #878787;
+                                    border-radius: .8rem;
+                                    max-height: 60%;
+                                    overflow: auto;
+
+                                    .spec-item {
+                                        display: flex;
+                                        font-size: 1.2rem;
+                                        color: white;
+                                        padding: .8rem;
+                                        background: unset;
+                                        border: unset;
+                                        
+
+                                        &:hover {
+                                            background-color: #777777;
+                                            border-radius: .8rem;
+                                            cursor: pointer;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .consultation-form {
+                                .doctor-name {
+                                }
+                                .consult-date {
+                                    display: flex;
+                                    justify-content: center;
+                                    flex: 1;
+                                    align-items: center;
+                                    gap: 1rem;
+
+                                    input {
+                                        padding: 0.5rem 1rem;
+                                        cursor: pointer;
+                                    }
+                                }
+                                .consult-submit-btn {
+                                    margin-right: 1rem;
+                                    padding: 0.6rem 3rem;
+                                    border: unset;
+                                    background-color: rgba(26, 188, 156, .95);
+                                    font-size: 1rem;
+                                    color: white;
+                                    font-weight: bold;
+
+                                    &:hover {
+                                        cursor: pointer;
+                                        background-color: rgba(25, 160, 133, 0.95);
+                                    }
+
+                                    &:disabled {
+                                        background-color: #868686;
+                                        
+                                        &:hover {
+                                            cursor: unset;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .appointment-form, .consultation-form {
+                                display: flex;
+                                justify-content: flex-start;
+                                flex-direction: column;
+                                flex: 6;
+
+                                .doctors {
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    flex-direction: column;
+                                    padding: 2rem;
+
+                                    .doctor-data {
+                                        display: flex;
+                                        justify-content: flex-start;
+                                        flex-direction: column;
+                                        border: 2px solid #686868;
+                                        border-bottom: unset;
+
+                                        &:not(:first-of-type) {
+                                            margin-top: 1rem;
+                                        }
+
+                                        .doctor-info {
+                                            display: flex;
+                                            justify-content: space-between;
+                                            flex-direction: row;
+                                            padding: 1rem;
+                                            border-bottom: 3px solid #242424;
+                                            border-radius: 0.2rem;
+                                            text-align: center;                                            
+    
+                                            .doctor-name {
+                                                font-size: 1rem;
+                                                margin: auto 0 auto 1rem;
+                                                font-weight: bold;
+                                            }
+    
+                                            .free-days-count {
+                                                font-size: 1rem;
+                                                font-weight: inherit;
+                                                margin: auto;
+                                                color: #7c7c7c;
+                                            }
+    
+                                            .doctor-schedule-btn {
+                                                background-color: #1cc1a0;
+                                                border-radius: 0.2rem;
+                                                font-size: 1rem;
+                                                color: #fff;
+                                                padding: 0.8rem 2rem;
+                                                border: unset;
+                                                transition: .3s;
+                                                
+                                                &:hover {
+                                                    cursor: pointer;
+                                                    background-color: #1ba589;
+                                                }
+
+                                                &:disabled {
+                                                    background-color: #868686;
+                                                    
+                                                    &:hover {
+                                                        cursor: unset;
+                                                    }
+                                                }
+                                            }
+    
+                                        }
+
+                                        .doctor-schedule {
+                                            display: none;
+                                            flex-direction: row;
+                                            border-bottom: 2px solid #686868;
+
+                                            .calendar {
+                                                padding: .6rem 1rem;
+
+                                                .day {
+                                                    color: #1c721c;
+                                                    border: 1px solid #22cc22;
+                                                    border-radius: unset;
+                                                }
+                                                .disabled {
+                                                    color: #b1b1b1;
+                                                    border: unset;
+                                                }
+                                                .datepicker-inline {
+                                                    width: 20.2rem;
+                                                }
+                                                .today {
+                                                    color: black;
+                                                }
+                                                .active {
+                                                    background-color: #16a085 !important;
+                                                    color: white;
+                                                }
+
+                                                td, th {
+                                                    padding: 8px 10px;
+                                                }
+                                            }
+
+                                            .day-schedule {
+                                                display: flex;
+                                                justify-content: flex-start;
+                                                flex-direction: column;
+                                                padding: 1rem;
+                                                flex: 1;
+                                                overflow-y: auto;
+                                                max-height: 12rem;
+
+                                                .schedule-item {
+                                                    display: flex;
+                                                    justify-content: space-between;
+                                                    flex-direction: row;
+                                                    padding: 1rem;
+                                                    border: 2px solid black;
+                                                    align-items: center;
+
+                                                    &:not(:first-of-type) {
+                                                        margin-top: .2rem;
+                                                    }
+
+                                                    .schedule-btn {
+                                                        padding: 0.6rem 1rem;
+                                                        background-color: rgba(204, 65, 233, 0.83);
+                                                        color: white;
+                                                        font-weight: bold;
+                                                        font-size: 1rem;
+                                                        border: unset;
+
+                                                        &:hover {
+                                                            cursor: pointer;
+                                                            background-color: rgba(164, 50, 187, 0.904);
+                                                        }
+                                                        
+                                                        &:disabled {
+                                                            background-color: #686868;
+                                                        }
+                                                    }
+
+                                                    .avaible {
+                                                        color: #22cc22;
+                                                    }
+                                                    .unavaible {
+                                                        color: #b3114d;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            .user-records {
+                                display: flex;
+                                justify-content: flex-start;
+                                flex-direction: column;
+                                flex: 1;
+
+                                .title {
+                                    font-size: 1.8rem;
+                                    font-weight: bold;
+                                    margin: .6rem 1rem;
+                                }
+
+                                .container {
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    flex-direction: column;
+                                    flex: 1;
+                                }
+
+                                .appointments, .consultations {
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    flex-direction: column;
+                                    margin: 1rem 2rem;
+                                    max-height: 18rem;
+                                    overflow: auto;
+
+                                    .user-records-table {
+                                        border-spacing: 0;
+
+                                        thead {
+                                            background-color: rgba(167, 167, 167, .7);
+                                            border-radius: .6rem;
+                                            text-align: center;
+
+                                            th {
+                                                padding: 0.6rem 0 0.6rem 1rem;
+                                            }
+                                        }
+
+                                        tbody {
+                                            text-align: center;
+                                            td {
+                                                padding: 0.6rem 0 0.6rem 1rem;
+                                            }
+
+                                            .waiting {
+                                                color: rgb(197, 197, 0);
+                                            }
+                                            .submitted {
+                                                color: rgb(0, 151, 0);
+                                            }
+                                            .denied {
+                                                color: red;
+                                            }
+                                        }
+                                        
+                                        .right {
+                                            text-align: right;
+                                            align-items: right;
+
+                                            button {
+                                                margin-right: .6rem;
+                                            }
+                                        }
+
+                                        .schedule-deny, .consultation-cancel {
+                                            padding: 1rem;
+                                            font-weight: bold;
+                                            color: white;
+                                            font-size: 1rem;
+                                            background-color: rgba(211, 9, 9, 0.822);
+                                            border: unset;
+                                            border-radius: .6rem;
+
+                                            &:hover {
+                                                cursor: pointer;
+                                                background-color: rgba(146, 13, 13, 0.822);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

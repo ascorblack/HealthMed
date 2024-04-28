@@ -1,0 +1,42 @@
+
+<script src="/static/users/js/patient-schedule.js"></script>
+<div class="appointments-specs">
+    <p class="specs-title">Выберите специализацию</p>
+
+    <div class="items-list">
+
+        {% for spec in specializations %}
+            <button class="spec-item" id="spec-{{ spec.id }}">{{ spec.name }}</button>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<div class="appointment-form">
+    <div class="doctors">
+        {% for doctor in doctors %}
+
+            <div class="doctor-data" id="doctor-{{ doctor.doctor_id }}">
+                <div class="doctor-info">
+                    <p class="doctor-name">{{ doctor.lastname }} {{ doctor.firstname }} {{ doctor.surname }}</p>
+                    <p class="free-days-count">Доступных номерков: {{ doctor.schedule.count_free_days }}</p>
+                    {% if doctor.schedule.count_free_days > 0 %}
+                        <button onclick="openSchedule(this);" class="doctor-schedule-btn" id="open-schedule-doctor-{{ doctor.doctor_id }}">Открыть расписание</button>
+                    {% else %}
+                        <button class="doctor-schedule-btn" disabled>Открыть расписание</button>
+                    {% endif %}
+                </div>
+                
+                {% if doctor.schedule.count_free_days > 0 %}
+                    <div class="doctor-schedule" id="schedule-doctor-{{ doctor.doctor_id }}">
+                        <div class="calendar" id="calendar-doctor-{{ doctor.doctor_id }}"></div>
+                        <div class="day-schedule" id="day-schedule-{{ doctor.doctor_id }}"></div>
+                    </div>
+                {% endif %}
+
+            </div>
+
+        {% endfor %}
+    </div>
+</div>

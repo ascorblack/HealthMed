@@ -1,0 +1,73 @@
+<div class="user-records">
+    <div class="container">
+        <p class="title">Предстоящие посещения к вам</p>
+
+        <div class="appointments">
+
+            <table class="user-records-table appointments-table">
+
+                <thead>
+                    <tr>
+                        <th scope="col">Имя пациента</th>
+                        <th scope="col">Дата</th>
+                        <th scope="col">Время</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% if appointments %}
+
+                        {% for item in appointments %}
+
+                            <tr>
+                                <td>{{ item.patient.fullname }}</td>
+                                <td>{{ item.schedule.date }}</td>
+                                <td>{{ item.schedule.start_time }} - {{ item.schedule.end_time }}</td>
+                            </tr>
+
+                        {% endfor %}
+
+                    {% endif %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <p class="title">Одобренные заявки на консультацию</p>
+
+        <div class="consultations">
+
+            <table class="user-records-table consultations-table">
+
+                <thead>
+                    <tr>
+                        <th scope="col">Имя пациента</th>
+                        <th scope="col">Дата</th>
+                        <th scope="col">Статус</th>
+                        <th scope="colgroup"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% if consultations %}
+
+                        {% for item in consultations %}
+
+                            <tr>
+                                <td>{{ item.patient.fullname }}</td>
+                                <td>{{ item.consultation.date }}</td>
+                                <td class="submitted">Одобренно</td>
+                                <td><button class="deny-consultation-btn" id="deny-consultation-{{ item.consultation.id }}" onclick="consultationAction(this, 'deny');">Отклонить</button></td>
+                            </tr>
+
+                        {% endfor %}
+
+                    {% endif %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

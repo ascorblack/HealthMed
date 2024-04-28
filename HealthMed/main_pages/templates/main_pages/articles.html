@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Полезная информация</title>
+    {% include 'imports.html' %}
+    <link rel="stylesheet" href="{% static 'main_pages/styles/index.css' %}">
+</head>
+<body class="page-index">
+
+
+    {% with authorized=authorized_status %}
+        {% include 'header.html' %}
+    {% endwith %}
+
+    <div class="page-content">
+        <div class="container">
+            <div class="page-block">
+                <div class="articles">
+                    {% for article in articles %}
+
+                    <div class="article">
+                        <div class="article-preview">
+                            <p class="title">{{ article.title }}</p>
+                            <button class="show-article-btn" id="article-{{ article.id }}">Раскрыть статью</button>
+                        </div>
+
+                        <div class="text" id="article-text-{{ article.id }}" style="display: none">
+                            {% for p_text in article.text %}
+                                <p>{{ p_text }}</p>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+                    {% if not articles %}
+                         <div class="article">
+                            <div class="article-preview">
+                                <p class="title">Пока нет ни одной статьи ):</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'main_pages/js/handlers.js' %}"></script>
+</body>
+</html>

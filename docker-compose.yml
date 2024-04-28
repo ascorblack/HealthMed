@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+       context: ./HealthMed
+       dockerfile: Dockerfile
+    command: bash -c "chmod +x /app/start.sh && /app/start.sh"
+    volumes:
+      - ./HealthMed/static:/app/static
+    env_file:
+      - .env.app
+    depends_on:
+      - db
+  db:
+    image: postgres:15.2
+    restart: always
+    volumes:
+      - ./postgresql-data:/var/lib/postgresql/data
+    env_file:
+      - .env.app
+      
+  nginx:
+    build: nginx
+    volumes:
+      - ./HealthMed/static:/app/static
+    ports:
+      - 80:80
+    depends_on:
+      - web

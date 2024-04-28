@@ -1,0 +1,377 @@
+* {
+    margin: unset;
+    padding: unset;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+body {
+    height: 100% !important;
+    //font-family: 'Roboto', sans-serif !important;
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.page-index {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 5rem;
+
+  .page-content {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      //padding: 2.2rem 1rem;
+
+      .page-block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0 auto;
+        padding: 2.2rem 1rem;
+
+        .articles {
+          display: flex;
+          justify-content: flex-start;
+          flex-direction: column;
+          width: 100%;
+          gap: 1rem;
+        }
+
+        .article {
+          display: flex;
+          justify-content: flex-start;
+          flex-direction: column;
+          border: 2px black solid;
+          padding: 0.4rem 0.6rem;
+          border-radius: 0.2rem;
+
+
+          .article-preview {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+            text-align: left;
+            
+
+            .title {
+              font-size: 1.6rem;
+              font-weight: bold;
+              margin: 1rem 1rem;
+              flex: 5;
+            }
+
+            .show-article-btn {
+              padding: .8rem 2rem;
+              font-size: 1rem;
+              height: fit-content;
+              font-weight: bold;
+              color: white;
+              background-color: #b813da;
+              border: unset;
+              flex: 1;
+
+              &:hover {
+                cursor: pointer;
+                background-color: #8b06a5;
+              }
+            }
+  
+          }
+
+          .text {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            white-space: pre-wrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 100% !important;
+            font-family: 'Roboto';
+            margin-top: 0.4rem;
+
+            p {
+              margin: .4rem 1rem;
+            }
+          }
+        }
+
+
+        #med-art {
+          width: 30rem;
+        }
+
+        @media (max-width: 991px) {
+          flex-direction: column;
+
+          #med-art {
+            display: none;
+          }
+
+          .health-portal-buttons {
+            justify-content: center;
+          }
+
+          .health-portal-info {
+            text-align: center;
+          }
+        }
+
+        .health-portal-info {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          color: #333;
+
+
+          h1 {
+            font-size: 3.4rem;
+            font-weight: bold;
+            margin-bottom: 3rem;
+            color: white;
+
+            @media only screen and (max-width: 520px) {
+                font-size: 2.4rem;
+            }
+          }
+
+          .health-portal-buttons {
+            display: flex;
+
+            button {
+              background-color: #3A9CD3;
+              color: #fff;
+              border: none;
+              border-radius: 5px;
+              font-size: 18px;
+              font-weight: bold;
+              padding: 10px 20px;
+              margin-right: 10px;
+              cursor: pointer;
+              transition: all 0.3s ease;
+            }
+            #login-button {
+              background-color: rgb(41 162 189);
+
+              &:hover {
+                background-color: #3291cd;
+              }
+            }
+            #register-button {
+              background-color: transparent;
+              border: 2px solid rgb(255 255 255);
+              color: white;
+
+              &:hover {
+                background-color: #ffb0b0;
+                border: 2px solid #ffb0b0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .top-block {
+      background-image: linear-gradient(to right, rgba(131, 96, 195, 1), rgba(46, 191, 145, 1));
+      //background-image: url("/static/main_pages/images/block-1.png");
+    }
+  }
+}
+
+
+
+
+.appointment-benefits {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  //margin-top: 2rem;
+
+  .benefits-text {
+    flex: 3;
+    color: #333;
+
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: disc;
+      margin-left: 20px;
+
+      li {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-bottom: .6rem;
+      }
+    }
+  }
+
+  .benefits-text-doctor {
+    padding: .6rem 0 .6rem 2rem;
+  }
+
+  .benefits-text-consultation {
+    padding: .6rem 2rem .6rem 0;
+  }
+
+  .appointment-button {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+
+    img {
+      padding: 1rem 2rem;
+      width: 6rem;
+    }
+
+    .book-button {
+      background-color: #3A9CD3;
+      color: #fff;
+      border: none;
+      border-radius: .4rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: .8rem 1.8rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #3079A7;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .appointment-benefits {
+    flex-direction: column;
+
+    .benefits-text {
+      padding-right: 0;
+    }
+
+    .benefits-image {
+      text-align: center;
+    }
+  }
+}
+
+
+
+@media (max-width: 664px) {
+  .page-block {
+    flex-direction: column;
+  }
+}
+
+// Default styles for all devices
+
+@media only screen and (max-width: 767px) {
+  // Styles for mobile devices (up to 767px)
+  .page-block {
+    max-width: 512px;
+    width: unset;
+  }
+
+  .footer__container {
+    max-width: 512px;
+    width: 100%;
+  }
+
+
+  .appointment-consult {
+    flex-direction: column-reverse;
+    margin-top: -2rem;
+
+    .benefits-text {
+      padding: 0.6rem 2rem 0.6rem 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  // Styles for tablets (768px to 991px)
+  .page-block {
+    max-width: 664px;
+    width: unset;
+  }
+
+  .footer__container {
+    max-width: 664px;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  // Styles for smaller desktops (992px to 1199px)
+  .page-block {
+    max-width: 768px;
+    width: unset;
+  }
+
+  .footer__container {
+    max-width: 768px;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1380px) {
+  // Styles for larger desktops (1300px and above)
+  .page-block {
+    max-width: 1286px;
+
+    .doctor-data {
+      .doctor-info {
+        flex-direction: column !important;
+        gap: 1rem;
+      }
+  
+      .doctor-schedule {
+        flex-direction: column !important;
+      }
+
+      .calendar {
+        margin: auto !important;
+        padding: unset !important;
+      }
+    }
+
+    .schedule-display {
+      flex-direction: column;
+    }
+  }
+
+  .footer__container {
+    max-width: 1286px;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  // Styles for larger desktops (1300px and above)
+  .page-block {
+    max-width: 1286px;
+  }
+
+  .footer__container {
+    max-width: 1286px;
+    width: 100%;
+  }
+}

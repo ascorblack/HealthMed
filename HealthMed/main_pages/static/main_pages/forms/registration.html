@@ -1,0 +1,49 @@
+<div class="fullscreen-form" style="display: none">
+
+  <span id="close-form"></span>
+
+  <form id="register-form">
+    <p class="form-title">Регистрация</p>
+
+    <div class="form-block">
+      <input type="email" id="email" name="email" placeholder="Ваш e-mail" required>
+    </div>
+
+    <div class="form-block">
+      <input type="tel" id="phone" name="phone" placeholder="Ваш номер телефона" required>
+    </div>
+
+    <div class="form-block sfm">
+      <input type="text" id="firstname" name="firstname" placeholder="Ваше имя" required>
+
+      <input type="text" id="lastname" name="lastname" placeholder="Ваша фамилия" required>
+
+      <input type="text" id="surname" name="surname" placeholder="Ваше отчество">
+    </div>
+
+    <div class="form-block">
+      <input type="date" id="birthdate" name="birthdate" placeholder="Ваша дата рождения" required>
+    </div>
+
+    <div class="form-block personal-docs">
+      <input type="text" id="passport" name="passport" placeholder="Номер и серия паспорта" required>
+
+      <input type="text" id="med_policy" name="med_policy" placeholder="Медицинский полис" required>
+    </div>
+
+    <div class="form-block input-password">
+      <input type="password" id="password" name="password" placeholder="Пароль" autocomplete="off" required>
+
+      <input type="password" id="password_repeat" name="password_repeat"
+             placeholder="Повторите пароль" autocomplete="off" required>
+    </div>
+
+    <p class="toggle-text"> Уже зарегистрированы? <span id="toggle-login-block">Войти</span> </p>
+    <div class="alerts" id="form-alerts"></div>
+    <button type="submit" id="register-submit-btn">Зарегистрироваться</button>
+
+  </form>
+  <link rel="stylesheet" href="/static/main_pages/styles/forms.css">
+  <script src="/static/main_pages/js/register-form.js"></script>
+
+</div>

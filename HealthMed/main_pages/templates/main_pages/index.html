@@ -1,0 +1,98 @@
+{% load static %}
+
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HealthMed</title>
+    {% include 'imports.html' %}
+    <link rel="stylesheet" href="{% static 'main_pages/styles/index.css' %}">
+
+</head>
+<body class="page-index">
+
+    {% with authorized=authorized_status %}
+        {% include 'header.html' %}
+    {% endwith %}
+
+    <div class="page-content">
+
+        <div class="container top-block">
+            <div class="page-block">
+              <div class="health-portal-info">
+                <h1>Электронный портал здравоохранения</h1>
+                <div class="health-portal-buttons">
+                  <button id="login-button">Войти</button>
+                  <button id="register-button">Зарегистрироваться</button>
+                </div>
+              </div>
+                <img src="{% static 'main_pages/images/med-art.png' %}" alt="Doctor image" id="med-art">
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="page-block">
+                <div class="appointment-benefits appointment-doctor">
+                  <div class="benefits-text benefits-text-consultation">
+                    <h2>Преимущества онлайн-консультаций с врачом</h2>
+                    <ul>
+                      <li>Удобство и доступность, не нужно тратить время на посещение поликлиники</li>
+                      <li>Возможность получить консультацию специалиста, находясь дома или на работе</li>
+                      <li>Снижение риска заражения инфекциями, особенно в период эпидемий</li>
+                      <li>Экономия времени и средств на поездки и проживание в другом городе для получения медицинской помощи</li>
+                    </ul>
+                  </div>
+                  <div class="appointment-button">
+                    <img src="{% static 'main_pages/images/notepad-image.png' %}" alt="Notepad image">
+                    {% if authorized_status == "visitor" %}
+                      <button class="book-button" id="login-button">Записаться на консультацию</button>
+                    {% elif authorized_status == "user" %}
+                      <button class="book-button" onclick='window.location = "/user/profile"' id="personal-profile-button">Записаться на консультацию</button>
+                    {% elif authorized_status == "doctor" %}
+                      <button class="book-button" onclick='window.location = "/doctor/profile"' id="personal-profile-button">Записаться на консультацию</button>
+                    {% endif %}
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="page-block">
+                <div class="appointment-benefits appointment-consult">
+                  <div class="appointment-button">
+                    <img src="{% static 'main_pages/images/hospital-image.png' %}" alt="Hospital image">
+                    {% if authorized_status == "visitor" %}
+                      <button class="book-button" id="login-button">Записаться на прием к врачу</button>
+                    {% elif authorized_status == "user" %}
+                      <button class="book-button" onclick='window.location = "/user/profile"' id="personal-profile-button">Записаться на прием к врачу</button>
+                    {% elif authorized_status == "doctor" %}
+                      <button class="book-button" onclick='window.location = "/doctor/profile"' id="personal-profile-button">Записаться на прием к врачу</button>
+                    {% endif %}
+                  </div>
+                  <div class="benefits-text benefits-text-doctor">
+                    <h2>Преимущества бронирования назначений в больнице онлайн</h2>
+                    <ul>
+                      <li>Доступность 24/7 - вы можете записаться на прием в любое время и в любом месте</li>
+                      <li>Нет необходимости ждать на линии ожидания или ориентироваться в сложной телефонной системе</li>
+                      <li>Легкий доступ к истории посещений и медицинской документации</li>
+                      <li>Возможность назначать встречи с несколькими врачами или отделениями за один раз</li>
+                      <li>Сокращение времени ожидания в больнице благодаря эффективному составлению расписания</li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    {% include 'footer.html' %}
+
+    <script src="{% static 'main_pages/js/handlers.js' %}"></script>
+
+</body>
+</html>
+

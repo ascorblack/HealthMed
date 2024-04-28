@@ -1,0 +1,27 @@
+<header>
+  <div class="header__container">
+    <div class="logo">
+      <a href="/">HealthMed</a>
+    </div>
+    <div class="menu">
+      <nav>
+        <ul>
+          {% comment %} <li><a href="#">Сервисы</a></li> {% endcomment %}
+          <li><a href="{% url 'articles' %}">Статьи</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="login">
+      {% if authorized == "visitor" %}
+        <a href="#" class="header-button" id="login-button">Войти/Зарегистрироваться</a>
+      {% elif authorized == "user" %}
+        <a href="/user/profile" class="header-button" id="personal-profile-button">Личный кабинет</a>
+      {% elif authorized == "doctor" %}
+        <a href="/doctor/profile" class="header-button" id="personal-profile-button">Личный кабинет</a>
+      {% elif authorized == "personal-cabinet" %}
+        <a href="#" class="header-button" id="logout-button">Выйти</a>
+      {% endif %}
+    </div>
+  </div>
+</header>
+<link rel="stylesheet" href="/static/main_pages/styles/header.css">

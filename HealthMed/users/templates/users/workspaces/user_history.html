@@ -1,0 +1,85 @@
+<div class="user-records">
+
+    <div class="container">
+        <p class="title">История посещений к врачам</p>
+        <div class="appointments">
+
+            <table class="user-records-table appointments-table">
+
+                <thead>
+                    <tr>
+                        <th scope="col">Врач</th>
+                        <th scope="col">Специализация</th>
+                        <th scope="col">Дата</th>
+                        <th scope="col">Время</th>
+                        <th scope="colgroup"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% if appointments %}
+
+                        {% for item in appointments %}
+
+                            <tr>
+                                <td>{{ item.doctor.fullname }}</td>
+                                <td>{{ item.doctor.sepcialization.name }}</td>
+                                <td>{{ item.schedule.date }}</td>
+                                <td>{{ item.schedule.start_time }} - {{ item.schedule.end_time }}</td>
+                                <td class="right"><button class="schedule-deny" onclick="denyAppointment(this)" id="deny-schedule-{{ item.schedule.id }}">Удалить</button></td>
+                            </tr>
+
+                        {% endfor %}
+
+                    {% endif %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <p class="title">История консультаций</p>
+        <div class="consultations">
+    
+            <table class="user-records-table consultations-table">
+    
+                <thead>
+                    <tr>
+                        <th scope="col">Врач</th>
+                        <th scope="col">Специализация</th>
+                        <th scope="col">Дата</th>
+                        <th scope="col">Статус запроса</th>
+                        <th scope="colgroup"></th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                    {% if consultations %}
+    
+                        {% for item in consultations %}
+    
+                            <tr>
+                                <td>{{ item.doctor.fullname }}</td>
+                                <td>{{ item.doctor.sepcialization.name }}</td>
+                                <td>{{ item.consultation.date }}</td>
+                                {% if item.consultation.status == None %}
+                                    <td class="waiting">Решение не было принято</td>
+                                {% elif item.consultation.status %}
+                                    <td class="submitted">Принят</td>
+                                {% else %}
+                                    <td class="denied">Отказано</td>
+                                {% endif %}
+                                
+                                <td class="right"><button class="consultation-cancel" onclick="deleteConsultation(this)" id="consultation-cancel-{{ item.consultation.id }}">Удалить</button></td>
+                            </tr>
+    
+                        {% endfor %}
+    
+                    {% endif %}
+                </tbody>
+    
+            </table>
+        </div>
+    </div>
+</div>

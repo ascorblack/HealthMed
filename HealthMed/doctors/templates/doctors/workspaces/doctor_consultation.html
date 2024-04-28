@@ -1,0 +1,51 @@
+<script src="/static/doctors/js/doctor-consultations.js"></script>
+
+<div class="user-records">
+    <p class="title">Заявки на консультацию</p>
+    <div class="consultation-form">
+
+        
+
+        <div class="consultations">
+
+            <table class="user-records-table consultations-table">
+
+                <thead>
+                    <tr>
+                        <th scope="col">Имя пациента</th>
+                        <th scope="col">Дата</th>
+                        <th scope="col">Статус</th>
+                        <th scope="colgroup"></th>
+                        <th scope="colgroup"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% if consultations %}
+
+                        {% for item in consultations %}
+
+                            <tr>
+                                <td>{{ item.patient.fullname }}</td>
+                                <td>{{ item.consultation.date }}</td>
+                                {% if item.consultation.status == None %}
+                                    <td class="waiting">Ожидает подтверждения</td>
+                                {% elif item.consultation.status %}
+                                    <td class="submitted">Принят</td>
+                                {% else %}
+                                    <td class="denied">Отказано</td>
+                                {% endif %}
+                                <td><button class="deny-consultation-btn" id="deny-consultation-{{ item.consultation.id }}" onclick="consultationAction(this, 'deny');">Отклонить</button></td>
+                                <td><button class="accept-consultation-btn" id="accept-consultation-{{ item.consultation.id }}" onclick="consultationAction(this, 'accept');">Подтвердить</button></td>
+                            </tr>
+
+                        {% endfor %}
+
+                    {% endif %}
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>

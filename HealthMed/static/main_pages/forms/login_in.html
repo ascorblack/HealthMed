@@ -1,0 +1,26 @@
+<div class="fullscreen-form" style="display: none">
+
+  <span id="close-form"></span>
+
+    <form id="login-form">
+
+      <p class="form-title">Авторизация</p>
+
+      <div class="form-block">
+        <input type="email" id="email" name="email" placeholder="Ваш e-mail" required>
+      </div>
+
+      <div class="form-block input-password">
+        <input type="password" id="password" name="password"
+             placeholder="Введите пароль" autocomplete="off" required>
+      </div>
+
+      <p class="toggle-text"> Ещё не зарегистрированы? <span id="toggle-login-block">Зарегистрироваться</span> </p>
+      <div class="alerts" id="form-alerts"></div>
+      <button type="button" id="login-submit-btn">Войти</button>
+
+  </form>
+  <link rel="stylesheet" href="/static/main_pages/styles/forms.css">
+  <script src="/static/main_pages/js/login-form.js"></script>
+
+</div>
