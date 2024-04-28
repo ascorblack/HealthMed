@@ -3,7 +3,7 @@
 Способ развёртки: docker (docker compose)
 Веб-сервер: Nginx
 СУБД: PostgreSQL
-Бэкенд язык: Python, а именно фреймворк [Django REST framework](https://www.django-rest-framework.org/).
+Бэкенд язык: Python, а именно фреймворк [Django REST framework](https://www.django-rest-framework.org/)
 Фронтэнд: JS с использованием фреймворка jQuery + HTML5 + SCSS
 
 Сайт написан при помощи веб-фреймворка 
