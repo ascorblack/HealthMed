@@ -1,6 +1,12 @@
-# Структура проекта
+# Описание
 
-Сайт написан при помощи веб-фреймворка [django-rest-framework](https://www.django-rest-framework.org/).
+Способ развёртки: docker (docker compose)
+Веб-сервер: Nginx
+СУБД: PostgreSQL
+Бэкенд язык: Python, а именно фреймворк [Django REST framework](https://www.django-rest-framework.org/).
+Фронтэнд: JS с использованием фреймворка jQuery + HTML5 + SCSS
+
+Сайт написан при помощи веб-фреймворка 
 
 ## Как запустить проект
 1. Установить на компьютер [docker](https://docker.com)
@@ -9,6 +15,7 @@
 4. Запуститься 3 контейнера: nginx, postgresql и python с кодом самого сайта
 
 ---
+# Структура проекта
 
 ## Приложения
 
